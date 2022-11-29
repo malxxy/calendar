@@ -23,7 +23,7 @@ $(document).ready(function() {
     } else {
       $(this).css("background-color","pink"); // past
     }
-  })
+  });
   // Initalize localStorage
   var saveBtn = $('.btn saveBtn'); // Save button variable
 
@@ -34,30 +34,14 @@ $(document).ready(function() {
     // attribute of each time-block be used to do this?
     var myEvent = $(this).siblings(".description").val(); // Traverse the DOM
     console.log("myEvent",myEvent);
-    localStorage.setItem("Event",JSON.stringify(myEvent)); // set Item of textarea
 
     var myHour = $(this).parent().attr('id');
     console.log("myHour",myHour); // hour that event is entered into
-    localStorage.setItem("myHour",JSON.stringify(myHour)); //set Item of hour
+
+    // store hour as key and event as item
+    localStorage.setItem(myHour,JSON.stringify(myEvent)); // set Item of textarea
     
-    let pullEvent = JSON.parse(localStorage.getItem("myEvent",myEvent)); // get item from storage
-    console.log(pullEvent);
+    let pullEvent = JSON.parse(localStorage.getItem(myHour,myEvent)); // get item from storage
+    $(this).siblings("textarea").append(pullEvent);
   });
 });
-
-// var savedData = localStorage.getItem('myEvent');
-// if(!savedData) {
-//     savedData = [];
-//     localStorage.setItem("myEvent", JSON.stringify(savedData))
-//   }
-// var temp = {
-//   hour: myHour,
-//   event: myEvent
-// };
-
-// // Add our new data to our dataset
-// pullEvent.push(temp);
-// console.log(pullEvent);
-// let JSONevents = JSON.stringify(pullEvent);
-// localStorage.setItem("myEvent", JSON.stringify(pullEvent));
-// localStorage.setItem(myHour, JSON.stringify(myEvent));
