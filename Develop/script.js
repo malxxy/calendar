@@ -57,46 +57,18 @@ $(document).ready(function() {
   localStorage.setItem(myHour, JSON.stringify(myEvent));
   });
 
-  // TODO: Add code to apply the past, present, or future class to each time
-  // block by comparing the id to the current hour. HINTS: How can the id
-  // attribute of each time-block be used to conditionally add or remove the
-  // past, present, and future classes? How can Day.js be used to get the
-  // current hour in 24-hour time?
-  // Past, present and future
-
+  // Past, present, and future
   var currentHour = dayjs().format("H");
   console.log("current hour",currentHour);
 
-  // var allHours = $(".hours");
-  // hourArray = [];
-  // console.log("allHours",allHours);
-  // for (let index = 0; index < allHours.length; index++) {
-  //   var hours = $(allHours[index]).attr("id");
-  //   var hourOnly = hours.replace('hour-','');
-  //   hourArray.push(hourOnly);
-  // }
-
-  // console.log("hourArray",hourArray);
-
-  // for (let index = 0; index < hourArray.length; index++) {
-  //   if (hourArray[index] == currentHour) {
-  //     $(hours[index]).css("background-color","blue");
-  //   } else if (hourArray[index] > currentHour) {
-  //     $(hours[index]).css("background-color","lavender");
-  //   } else {
-  //     $(hours).css("background-color","pink");
-  //   }
-  // };
-
-  // ALT OPTION using .each
   $(".hours").each(function() {
     var hour = $(this).attr("id");
-    if (hour == currentHour) {
-      $(this).css("background-color","blue");
-    } else if (hourArray[index] > currentHour) {
-      $(this).css("background-color","lavender");
+    if (hour == currentHour) { 
+      $(this).css("background-color","blue"); //present
+    } else if (hour > currentHour) {
+      $(this).css("background-color","yellow"); // future
     } else {
-      $(this).css("background-color","pink");
+      $(this).css("background-color","pink"); // past
     }
   })
 });
