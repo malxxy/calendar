@@ -67,24 +67,36 @@ $(document).ready(function() {
   var currentHour = dayjs().format("H");
   console.log("current hour",currentHour);
 
-  var allHours = $(".hours");
-  hourArray = [];
-  console.log("allHours",allHours);
-  for (let index = 0; index < allHours.length; index++) {
-    var hours = $(allHours[index]).attr("id");
-    var hourOnly = hours.replace('hour-','');
-    hourArray.push(hourOnly);
-  }
+  // var allHours = $(".hours");
+  // hourArray = [];
+  // console.log("allHours",allHours);
+  // for (let index = 0; index < allHours.length; index++) {
+  //   var hours = $(allHours[index]).attr("id");
+  //   var hourOnly = hours.replace('hour-','');
+  //   hourArray.push(hourOnly);
+  // }
 
-  console.log("hourArray",hourArray);
+  // console.log("hourArray",hourArray);
 
-  for (let index = 0; index < hourArray.length; index++) {
-    if (hourArray[index] == currentHour) {
-      $(hours[index]).css("background-color","blue");
+  // for (let index = 0; index < hourArray.length; index++) {
+  //   if (hourArray[index] == currentHour) {
+  //     $(hours[index]).css("background-color","blue");
+  //   } else if (hourArray[index] > currentHour) {
+  //     $(hours[index]).css("background-color","lavender");
+  //   } else {
+  //     $(hours).css("background-color","pink");
+  //   }
+  // };
+
+  // ALT OPTION using .each
+  $(".hours").each(function() {
+    var hour = $(this).attr("id");
+    if (hour == currentHour) {
+      $(this).css("background-color","blue");
     } else if (hourArray[index] > currentHour) {
-      $(hours[index]).css("background-color","lavender");
+      $(this).css("background-color","lavender");
     } else {
-      $(hours).css("background-color","pink");
+      $(this).css("background-color","pink");
     }
-  };
+  })
 });
