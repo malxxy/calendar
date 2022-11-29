@@ -11,43 +11,39 @@ $(document).ready(function() {
     localStorage.setItem("myEvent", JSON.stringify(savedData))
   }
 
-// Clear calendar every 24 hour
-// var currentTime = dayjs().format("HH:mm:ss");
-// if (currentTime === "20:15:00") {
-//   $(".description").text("");
-// };
+  // Clear calendar every 24 hour
+  var currentTime = dayjs().format("HH:mm:ss");
+  if (currentTime === "20:15:00") {
+   $(".description").text("");
+  };
 
-var saveBtn = $('.btn saveBtn');
+  var saveBtn = $('.btn saveBtn'); // Save button variable
 
 // display time at top of calendar
-function beginTime () {
-  var currentDateTime = dayjs().format("MM/DD/YY HH:mm:ss");
-  $('#currentDay').text(currentDateTime);
-};
+  function beginTime () {
+    var currentDateTime = dayjs().format("MM/DD/YY HH:mm:ss");
+    $('#currentDay').text(currentDateTime);
+  };
 
-setInterval(beginTime,1000);
+  setInterval(beginTime,1000);
 
-$(".saveBtn").click(function(){
-  // localStorage
-  var thing = $(this);  // capture the user input
-  // Traverse the DOM
-  console.log(thing.siblings());
-  console.log(thing.siblings(".description"));
-  console.log(thing.siblings(".description").val());  
+  $(".saveBtn").click(function(){
+    // localStorage
+    var thing = $(this);  // capture the user input
+    console.log(thing.siblings(".description").val());  // Traverse the DOM
+    var myEvent = thing.siblings(".description").val();
+    // localStorage.setItem("myEvent",JSON.stringify(myEvent));  // we just overwrite the existing data
+    console.log(myEvent);
+    var myHour = $(this).parent().attr('id');
+    console.log(myHour); // hour that event is entered into
+    let pullEvent = JSON.parse(localStorage.getItem("myEvent"));
 
-  var myEvent = thing.siblings(".description").val();
-  // localStorage.setItem("myEvent",JSON.stringify(myEvent));  // we just overwrite the existing data
-  console.log(myEvent);
-  var myHour = $(this).parent().attr('id');
-  console.log(myHour);
-  let pullEvent = JSON.parse(localStorage.getItem("myEvent"));
+    console.log(pullEvent);
 
-  console.log(pullEvent);
-
-  var temp = {
-    hour: myHour,
-    event: myEvent
-  }
+    var temp = {
+      hour: myHour,
+      event: myEvent
+    };
 
   // Add our new data to our dataset
   pullEvent.push(temp);
@@ -56,7 +52,12 @@ $(".saveBtn").click(function(){
   localStorage.setItem("myEvent", JSON.stringify(pullEvent));
   localStorage.setItem(myHour, JSON.stringify(myEvent));
 
-  // var currentHour = TARGET CURRENT ID HOUR;
+  var currentHour = dayjs().format("HH");
+
+  // Past, present and future
+  if (currentHour) {
+    $(".description")
+  }
 
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
