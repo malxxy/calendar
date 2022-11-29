@@ -41,7 +41,9 @@ $(document).ready(function() {
     console.log(myHour); // hour that event is entered into
     let pullEvent = JSON.parse(localStorage.getItem("myEvent"));
     console.log(pullEvent);
-
+      // TODO: Add code to get any user input that was saved in localStorage and set
+  // the values of the corresponding textarea elements. HINT: How can the id
+  // attribute of each time-block be used to do this?
     var temp = {
       hour: myHour,
       event: myEvent
@@ -53,11 +55,6 @@ $(document).ready(function() {
   let JSONevents = JSON.stringify(pullEvent);
   localStorage.setItem("myEvent", JSON.stringify(pullEvent));
   localStorage.setItem(myHour, JSON.stringify(myEvent));
-
-  // TODO: Add code to get any user input that was saved in localStorage and set
-  // the values of the corresponding textarea elements. HINT: How can the id
-  // attribute of each time-block be used to do this?
-
   });
 
   // TODO: Add code to apply the past, present, or future class to each time
@@ -83,11 +80,11 @@ $(document).ready(function() {
 
   for (let index = 0; index < hourArray.length; index++) {
     if (hourArray[index] == currentHour) {
-      $(".description").css("background-color","white");
+      $(hours[index]).css("background-color","blue");
     } else if (hourArray[index] > currentHour) {
-      $(".description").css("background-color","lavender");
+      $(hours[index]).css("background-color","lavender");
     } else {
-      $(".description").css("background-color","pink");
+      $(hours).css("background-color","pink");
     }
   };
 });
