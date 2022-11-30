@@ -2,42 +2,25 @@
 UCB Challenge 5. Refactor starter code to build a calendar application powered by jQuery.
 
 ## Description
-
+Daily calendar displays current date and time. Calendar clears every event at midnight. CAlendar shows which hours are past,present, and future. When events are entered and saved, they are put into localStorage and displayed upon refreshing the page.
 N/A
 ## Installation
-
 N/A
-
 ## Usage
+GitHub Pages: https://malxxy.github.io/calendar/
+GitHUb repository: https://github.com/malxxy/calendar
+<br>
+Calendar Date and Time:
+![calendar date and time](./Assets/dateTime.png)
+<br>
+Calendar Home:
+![calendar home](./Assets/home.png)
+<br>
+Past, Present, and Future:
+![calendar oast present and future](./Assets/pastpresentfuture.png)
+<br>
+## Credits
+No collaborators.
 
-### Notes on jQuery - this must be deleted
-How to add a varaible
-var variableName = $("#idName");
-
-How to add text to an element
-variableName.text('Insert string here');
-
-How to initiate a click event
-variableName.on('click',functionName());
-
-How to add a class
-variable/elementName.addClass('className');
-OR variableName.attr('class', 'className');
-
-How to append an element to another element
-variableName.append('class you want to append to);
-
-How to style an element
-variableName.css('property','attribute attribute attribute') 
-<!-- Not sure if attributes are seprated by commmas or not -->
-
-How to select user input jQuery
-index.html
-<div class="col-12 col-sm-6">
-    <label for="email">Email</label>
-    <input type="email" class="form-input" name="email" placeholder="Enter email" />
-</div>
-script.js
-$('input[name="email"]');
-
-How to 
+## License
+N/A

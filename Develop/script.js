@@ -24,9 +24,8 @@ $(document).ready(function() {
       $(this).addClass("past"); // past
     }
   });
-  // Initalize localStorage
-  var saveBtn = $('.btn saveBtn'); // Save button variable
 
+  var saveBtn = $('.btn saveBtn'); // Save button variable
   $(".saveBtn").click(function(){
     // localStorage
     var myEvent = $(this).siblings(".description").val(); // Traverse the DOM
@@ -36,13 +35,11 @@ $(document).ready(function() {
 
     // SET TIEM = store hour as key and event as item
     localStorage.setItem(myHour,JSON.stringify(myEvent));
-    // GET ITEM = grab hour and event from storage
-    let pullEvent = JSON.parse(localStorage.getItem(myHour,myEvent));
-    console.log("PULL EVENT",pullEvent);
   });
 
-  $(".hours").each(function (pullEvent) {
-    var pull = $(this).children(".description").append(pullEvent);
-    console.log("PULL",pull);
-  });
+  for(let i =9;i<=17;i++){
+    let pullEvent = JSON.parse(localStorage.getItem(i)); //getItem
+    console.log("PULL EVENT",pullEvent);
+    $("#"+i).children(".description").val(pullEvent);
+  };
 });
