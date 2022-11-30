@@ -36,7 +36,6 @@ $(document).ready(function() {
     // SET TIEM = store hour as key and event as item
     localStorage.setItem(myHour,JSON.stringify(myEvent));
   });
-
   for(let i =9;i<=17;i++){
     let pullEvent = JSON.parse(localStorage.getItem(i)); //getItem
     console.log("PULL EVENT",pullEvent);
