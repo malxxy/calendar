@@ -29,19 +29,20 @@ $(document).ready(function() {
 
   $(".saveBtn").click(function(){
     // localStorage
-    // TODO: Add code to get any user input that was saved in localStorage and set
-    // the values of the corresponding textarea elements. HINT: How can the id
-    // attribute of each time-block be used to do this?
     var myEvent = $(this).siblings(".description").val(); // Traverse the DOM
-    console.log("myEvent",myEvent);
+    console.log("myEvent",myEvent); // console log entered event
+    var myHour = $(this).parent().attr('id'); // Traverse the dom
+    console.log("myHour",myHour); // console log hour
 
-    var myHour = $(this).parent().attr('id');
-    console.log("myHour",myHour); // hour that event is entered into
+    // SET TIEM = store hour as key and event as item
+    localStorage.setItem(myHour,JSON.stringify(myEvent));
+    // GET ITEM = grab hour and event from storage
+    let pullEvent = JSON.parse(localStorage.getItem(myHour,myEvent));
+    console.log("PULL EVENT",pullEvent);
+  });
 
-    // store hour as key and event as item
-    localStorage.setItem(myHour,JSON.stringify(myEvent)); // set Item of textarea
-    
-    let pullEvent = JSON.parse(localStorage.getItem(myHour,myEvent)); // get item from storage
-    $(this).siblings("textarea").append(pullEvent);
+  $(".hours").each(function (pullEvent) {
+    var pull = $(this).children(".description").append(pullEvent);
+    console.log("PULL",pull);
   });
 });
