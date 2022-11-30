@@ -17,11 +17,11 @@ $(document).ready(function() {
   $(".hours").each(function() {
     var hour = $(this).attr("id");
     if (hour == currentHour) { 
-      $(this).css("background-color","blue"); //present
+      $(this).addClass("present"); //present
     } else if (hour > currentHour) {
-      $(this).css("background-color","yellow"); // future
+      $(this).addClass("future"); // future
     } else {
-      $(this).css("background-color","pink"); // past
+      $(this).addClass("past"); // past
     }
   });
   // Initalize localStorage
