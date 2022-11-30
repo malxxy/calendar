@@ -13,9 +13,6 @@ GitHUb repository: https://github.com/malxxy/calendar
 Calendar Date and Time:
 ![calendar date and time](./Assets/dateTime.png)
 <br>
-Calendar Home:
-![calendar home](./Assets/home.png)
-<br>
 Past, Present, and Future:
 ![calendar oast present and future](./Assets/pastpresentfuture.png)
 <br>
