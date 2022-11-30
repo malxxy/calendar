@@ -8,7 +8,8 @@ N/A
 N/A
 ## Usage
 GitHub Pages: https://malxxy.github.io/calendar/
-GitHUb repository: https://github.com/malxxy/calendar
+<br>
+GitHub repository: https://github.com/malxxy/calendar
 <br>
 Calendar Date and Time:
 ![calendar date and time](./Assets/dateTime.png)
